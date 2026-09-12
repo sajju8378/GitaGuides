@@ -22,14 +22,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Rozha+One&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
   </head>
   <body class="bg-[#080c15] text-slate-100 antialiased selection:bg-amber-500/30 selection:text-amber-200">
-    <script>
-      // Fallback: If deployed to GitHub Pages with 'Deploy from a branch' pointing to /(root),
-      // automatically redirect to /docs/ where the compiled JavaScript and assets reside.
-      if (window.location.hostname.includes('github.io') && !window.location.pathname.includes('/docs')) {
-        var base = window.location.pathname.endsWith('/') ? window.location.pathname : window.location.pathname + '/';
-        window.location.replace(base + 'docs/');
-      }
-    </script>
     <div id="root"></div>
     <script>
       if ('serviceWorker' in navigator) {
@@ -41,4 +33,3 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-

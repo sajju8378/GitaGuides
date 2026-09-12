@@ -30,5 +30,33 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "shortcuts": [
+    {
+      "name": "Seek Guidance",
+      "short_name": "Oracle",
+      "description": "Receive sacred Gita guidance for life dilemmas",
+      "url": "https://sajju8378.github.io/GitaGuides/",
+      "icons": [
+        {
+          "src": "https://sajju8378.github.io/GitaGuides/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Tanpura Sanctuary",
+      "short_name": "Tanpura",
+      "description": "Meditate with authentic acoustic tanpura drone",
+      "url": "https://sajju8378.github.io/GitaGuides/",
+      "icons": [
+        {
+          "src": "https://sajju8378.github.io/GitaGuides/pwa-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
   ]
 }
