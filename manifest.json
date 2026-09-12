@@ -1,12 +1,11 @@
 {
-  "id": "./",
+  "id": "https://sajju8378.github.io/GitaGuides/",
   "name": "Bhagavad Gita Wisdom & Guidance",
   "short_name": "GitaGuides",
   "description": "Spiritual guidance for modern life challenges with authentic Sanskrit Bhagavad Gita shlokas and meditative Tanpura drone.",
-  "start_url": "./",
-  "scope": "./",
+  "start_url": "https://sajju8378.github.io/GitaGuides/",
+  "scope": "https://sajju8378.github.io/GitaGuides/",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "orientation": "portrait-primary",
   "background_color": "#080c15",
   "theme_color": "#080c15",
@@ -30,22 +29,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "https://sajju8378.github.io/GitaGuides/screenshot-mobile.png",
-      "sizes": "720x1280",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "Gita Guidance & Sanctuary"
-    },
-    {
-      "src": "https://sajju8378.github.io/GitaGuides/screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Bhagavad Gita Wisdom Library"
     }
   ]
 }
