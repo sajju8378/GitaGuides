@@ -37,6 +37,9 @@ export const GuidanceOracle: React.FC<GuidanceOracleProps> = ({
     setIsLoading(true);
     setErrorMessage(null);
 
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 3500);
+
     try {
       const response = await fetch('/api/guidance', {
         method: 'POST',
@@ -47,7 +50,10 @@ export const GuidanceOracle: React.FC<GuidanceOracleProps> = ({
           dilemma: query,
           category: selectedCategory,
         }),
+        signal: controller.signal,
       });
+
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error('Server returned an error');
@@ -56,17 +62,36 @@ export const GuidanceOracle: React.FC<GuidanceOracleProps> = ({
       const data = await response.json();
       setGuidanceResult(data);
     } catch {
+      clearTimeout(timeoutId);
       // Graceful local fallback to client-side database
       const lower = query.toLowerCase();
-      const matched =
-        shlokaDatabase.find((s) => s.category === selectedCategory) ||
-        shlokaDatabase.find((s) => s.tags.some((t) => lower.includes(t))) ||
-        shlokaDatabase[0];
+      const words = lower.split(/\W+/).filter((w) => w.length > 2);
+
+      // Score all shlokas in the database
+      let bestShloka = shlokaDatabase[0];
+      let highestScore = -1;
+
+      for (const s of shlokaDatabase) {
+        let score = 0;
+        if (s.category === selectedCategory) score += 10;
+
+        for (const word of words) {
+          if (s.tags.some((t) => t.toLowerCase().includes(word))) score += 5;
+          if (s.translation.toLowerCase().includes(word)) score += 3;
+          if (s.philosophicalContext.toLowerCase().includes(word)) score += 3;
+          if (s.krishnaCounsel.toLowerCase().includes(word)) score += 2;
+        }
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestShloka = s;
+        }
+      }
 
       setGuidanceResult({
         seekerDilemma: query,
-        shloka: matched,
-        relevanceAnalysis: `Sri Krishna's words in Chapter ${matched.chapter}, Verse ${matched.verse} directly address this emotional turbulence with timeless philosophical clarity.`,
+        shloka: bestShloka,
+        relevanceAnalysis: `Sri Krishna's counsel in Chapter ${bestShloka.chapter}, Verse ${bestShloka.verse} offers timeless wisdom for this state of mind.`,
         isAiEnhanced: false,
       });
     } finally {
