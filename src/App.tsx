@@ -4,6 +4,7 @@ import { GuidanceOracle } from './components/GuidanceOracle';
 import { TanpuraPlayer } from './components/TanpuraPlayer';
 import { ShlokaLibrary } from './components/ShlokaLibrary';
 import { ContemplationJournal } from './components/ContemplationJournal';
+import { AppInstallModal } from './components/AppInstallModal';
 import { Shloka, SavedReflection } from './types';
 import { shlokaDatabase } from './data/shlokas';
 import { meditativeAudio } from './utils/audio';
@@ -17,6 +18,7 @@ export default function App() {
   const [focusedShloka, setFocusedShloka] = useState<Shloka | null>(null);
   const [isTanpuraPlaying, setIsTanpuraPlaying] = useState(false);
   const [rootKey] = useState('C#');
+  const [isInstallModalOpen, setIsInstallModalOpen] = useState(false);
 
   // Load saved reflections from localStorage
   useEffect(() => {
@@ -120,6 +122,7 @@ export default function App() {
         isTanpuraPlaying={isTanpuraPlaying}
         onToggleTanpura={handleToggleTanpura}
         rootKey={rootKey}
+        onOpenInstallModal={() => setIsInstallModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -203,6 +206,12 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Install App / APK Download Guidance Modal */}
+      <AppInstallModal
+        isOpen={isInstallModalOpen}
+        onClose={() => setIsInstallModalOpen(false)}
+      />
     </div>
   );
 }

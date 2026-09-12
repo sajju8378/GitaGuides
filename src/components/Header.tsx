@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Music, BookOpen, Bookmark, Volume2, Pause, Play } from 'lucide-react';
+import { Compass, Music, BookOpen, Bookmark, Volume2, Pause, Play, Smartphone } from 'lucide-react';
 
 export type NavTab = 'oracle' | 'tanpura' | 'library' | 'reflections';
 
@@ -10,6 +10,7 @@ interface HeaderProps {
   isTanpuraPlaying: boolean;
   onToggleTanpura: () => void;
   rootKey: string;
+  onOpenInstallModal?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -19,6 +20,7 @@ export const Header: React.FC<HeaderProps> = ({
   isTanpuraPlaying,
   onToggleTanpura,
   rootKey,
+  onOpenInstallModal,
 }) => {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md bg-[#080c15]/90 border-b border-amber-500/15 transition-all">
@@ -43,8 +45,19 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
             </button>
 
-            {/* Quick Tanpura toggle button for mobile */}
+            {/* Quick Tanpura toggle button and Install App button for mobile */}
             <div className="md:hidden flex items-center gap-2">
+              {onOpenInstallModal && (
+                <button
+                  id="btn-mobile-install"
+                  onClick={onOpenInstallModal}
+                  className="p-2 rounded-xl text-xs font-semibold flex items-center gap-1 bg-amber-500/10 border border-amber-500/30 text-amber-300"
+                  title="Install App / APK"
+                >
+                  <Smartphone className="w-3.5 h-3.5" />
+                  <span>APK</span>
+                </button>
+              )}
               <button
                 onClick={onToggleTanpura}
                 className={`p-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 border transition-all ${
@@ -122,8 +135,19 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </nav>
 
-          {/* Desktop Persistent Tanpura Mini Bar Indicator */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop Persistent Tanpura Mini Bar Indicator & Install App */}
+          <div className="hidden md:flex items-center gap-2.5">
+            {onOpenInstallModal && (
+              <button
+                id="header-install-app"
+                onClick={onOpenInstallModal}
+                className="px-3 py-1.5 rounded-xl text-xs font-semibold flex items-center gap-1.5 border border-amber-500/30 bg-amber-500/10 text-amber-300 hover:bg-amber-500/20 transition-all shadow-sm"
+              >
+                <Smartphone className="w-3.5 h-3.5" />
+                <span>Install / APK</span>
+              </button>
+            )}
+
             <button
               id="header-quick-tanpura"
               onClick={onToggleTanpura}

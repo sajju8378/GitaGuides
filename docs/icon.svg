@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="70%" stop-color="#090d16" />
+      <stop offset="100%" stop-color="#04060a" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="tealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background with rounded app icon border -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="108" fill="none" stroke="#d97706" stroke-width="3" stroke-opacity="0.3" />
+
+  <!-- Sacred Circle Halo -->
+  <circle cx="256" cy="230" r="140" fill="none" stroke="url(#goldGrad)" stroke-width="3" stroke-dasharray="8 6" opacity="0.6" />
+
+  <!-- Peacock Feather (Morpankh) Centerpiece -->
+  <g transform="translate(256, 220)">
+    <!-- Outer Golden Eye -->
+    <ellipse cx="0" cy="-30" rx="75" ry="95" fill="none" stroke="url(#goldGrad)" stroke-width="12" />
+    <path d="M 0 -125 C 60 -125 75 -40 0 65 C -75 -40 -60 -125 0 -125 Z" fill="#065f46" opacity="0.85" />
+    
+    <!-- Middle Azure / Teal Ring -->
+    <ellipse cx="0" cy="-25" rx="46" ry="60" fill="url(#tealGrad)" opacity="0.9" />
+
+    <!-- Center Deep Indigo Eye -->
+    <ellipse cx="0" cy="-20" rx="28" ry="36" fill="#1e1b4b" />
+    <circle cx="0" cy="-20" r="14" fill="#fbbf24" />
+
+    <!-- Quill / Flute Stem -->
+    <path d="M 0 65 Q 10 130 30 180" fill="none" stroke="url(#goldGrad)" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Delicate Feather Radiations -->
+    <path d="M -25 -80 C -60 -90 -85 -50 -55 -20" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.7" />
+    <path d="M 25 -80 C 60 -90 85 -50 55 -20" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.7" />
+    <path d="M -30 -30 C -70 -30 -80 15 -45 35" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.7" />
+    <path d="M 30 -30 C 70 -30 80 15 45 35" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.7" />
+  </g>
+
+  <!-- Lotus Petals Base -->
+  <g transform="translate(256, 390)">
+    <path d="M 0 -30 C 20 -10 35 15 0 25 C -35 15 -20 -10 0 -30 Z" fill="url(#goldGrad)" />
+    <path d="M 0 0 C 40 -20 80 0 45 30 C 15 25 5 15 0 0 Z" fill="url(#goldGrad)" opacity="0.8" />
+    <path d="M 0 0 C -40 -20 -80 0 -45 30 C -15 25 -5 15 0 0 Z" fill="url(#goldGrad)" opacity="0.8" />
+  </g>
+
+  <!-- Sanskrit OM symbol subtle watermark / accent -->
+  <text x="256" y="465" font-family="'Cinzel', serif" font-weight="700" font-size="28" fill="#f59e0b" text-anchor="middle" letter-spacing="4">GITA GUIDES</text>
+</svg>
