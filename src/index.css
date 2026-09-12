@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+.font-serif-sacred {
+  font-family: 'Cinzel', serif;
+}
+
+.font-sanskrit {
+  font-family: 'Tiro Devanagari Sanskrit', 'Rozha One', serif;
+}
+
+/* Subtle sacred aura glows */
+.aura-gold {
+  box-shadow: 0 0 40px -10px rgba(245, 158, 11, 0.15);
+}
+
+.aura-amber-subtle {
+  box-shadow: 0 0 60px -15px rgba(217, 119, 6, 0.12);
+}
+
+/* Custom smooth scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #374151;
+}

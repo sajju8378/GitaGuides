@@ -1,0 +1,7 @@
+{
+  "name": "Bhagavad Gita Wisdom & Guidance",
+  "description": "Spiritual guidance for modern life challenges matching authentic Sanskrit Bhagavad Gita shlokas with practical wisdom, interactive Tanpura meditative drone, and reflection journal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
